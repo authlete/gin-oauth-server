@@ -1,0 +1,74 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>{{ .model.ServiceName }} | Authorization Page</title>
+  <link rel="stylesheet" href="/css/authorization.css">
+</head>
+<body class="font-default">
+  <div id="page_title">{{ .model.ServiceName }}</div>
+
+  <div id="content">
+    <h3 id="client-name">{{ .model.ClientName }}</h3>
+    <div class="indent">
+      <img id="logo" src="{{ .model.LogoUri }}" alt="[Logo] (150x150)">
+
+      <div id="client-summary">
+        <p>{{ .model.Description }}</p>
+        <ul id="client-link-list">
+          {{ if .model.ClientUri }}
+            <li><a target="_blank" href="{{ .model.ClientUri }}">Homepage</a></li>
+          {{ end }}
+          {{ if .model.PolicyUri }}
+            <li><a target="_blank" href="{{ .model.PolicyUri }}">Policy</a></li>
+          {{ end }}
+          {{ if .model.TosUri }}
+            <li><a target="_blank" href="{{ .model.TosUri }}">Terms of Service</a></li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div style="clear: both;"></div>
+    </div>
+
+    {{ if .model.Scopes }}
+      <h4 id="permissions">Permissions</h4>
+      <div class="indent">
+        <p>The application is requesting the following permissions.</p>
+        <dl id="scope-list">
+          {{ range .model.Scopes }}
+            <dt>{{ .Name }}</dt>
+            <dd>{{ .Description }}</dd>
+          {{ end }}
+        </dl>
+      </div>
+    {{ end }}
+
+    <h4 id="authorization">Authorization</h4>
+    <div class="indent">
+      {{ if .model.UserName }}
+        <p>Hello {{ .model.UserName }},</p>
+      {{ end }}
+      <p>Do you grant authorization to the application?</p>
+
+      <form id="authorization-form" action="/api/authorization/decision" method="post">
+        {{ if .model.LoginRequired }}
+          <div id="login-fields" class="indent">
+            <div id="login-prompt">Input Login ID and password.</div>
+            <input type="text" id="loginId" name="loginId" placeholder="Login ID"
+                   class="font-default" required value="{{ .model.LoginId }}"
+                   {{ .model.LoginIdReadOnly }}>
+            <input type="password" id="password" name="password" placeholder="Password"
+                   class="font-default" required>
+          </div>
+        {{ end }}
+        <div id="authorization-form-buttons">
+          <input type="submit" name="authorized" id="authorize-button" value="Authorize" class="font-default"/>
+          <input type="submit" name="denied"     id="deny-button"      value="Deny"      class="font-default"/>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
