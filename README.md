@@ -158,7 +158,7 @@ Contact Form : https://www.authlete.com/contact/
 [AuthleteOverview]:       https://www.authlete.com/developers/overview/
 [AuthleteGo]:             https://github.com/authlete/authlete-go/
 [AuthleteGoGin]:          https://github.com/authlete/authlete-go-gin/
-[AuthleteSignUp]:         https://so.authlete.com/accounts/signup
+[AuthleteSignUp]:         https://login.authlete.com/signup
 [DeveloperConsole]:       https://www.authlete.com/developers/cd_console/
 [Gin]:                    https://github.com/gin-gonic/gin
 [GinOAuthServer]:         https://github.com/authlete/gin-oauth-server/
