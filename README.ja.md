@@ -155,7 +155,7 @@ ID で置き換えてください。 クライアントアプリケーション�
 [AuthleteOverview]:       https://www.authlete.com/ja/developers/overview/
 [AuthleteGo]:             https://github.com/authlete/authlete-go/
 [AuthleteGoGin]:          https://github.com/authlete/authlete-go-gin/
-[AuthleteSignUp]:         https://login.authlete.com/signup
+[AuthleteSignUp]:         https://console.authlete.com/register
 [DeveloperConsole]:       https://www.authlete.com/ja/developers/cd_console/
 [Gin]:                    https://github.com/gin-gonic/gin
 [GinOAuthServer]:         https://github.com/authlete/gin-oauth-server/
